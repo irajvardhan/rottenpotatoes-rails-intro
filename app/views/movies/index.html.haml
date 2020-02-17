@@ -3,11 +3,11 @@
 
 -# Added for part 2
 = form_tag movies_path, method: :get , id: 'ratings_form'do
-Include:
-- Movie.get_ratings.each do |rating|
-  = rating
-  = check_box_tag "ratings[#{rating}]", 1, @all_ratings.include?(rating)
-= submit_tag 'Refresh', id: 'ratings_submit'
+  Include:
+  - Movie.get_ratings.each do |rating|
+    = rating
+    = check_box_tag "ratings[#{rating}]", 1, @all_ratings.include?(rating)
+  = submit_tag 'Refresh', id: 'ratings_submit'
 
 
 %table#movies.table.table-striped.col-md-12
