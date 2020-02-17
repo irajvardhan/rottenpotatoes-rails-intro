@@ -1,3 +1,15 @@
+table#movies {
+  border-collapse: collapse;
+  border-bottom: 2px solid black;
+  background-color: white;
+  margin: 8px;
+}
+
+table#movies th, table#movies td {
+  padding: 5px;
+  text-align: center;
+}
+
 table#movies th.hilite {
   background-color: yellow;
 }
