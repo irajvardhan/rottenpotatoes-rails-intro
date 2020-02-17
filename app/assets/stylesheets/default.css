@@ -8,15 +8,8 @@ table #movies {
 
 table #movies th, table #movies td {
   border: 1px solid #ddd;
-  padding: 5px;
+  padding: 8px;
   text-align: center;
-}
-
-#movies th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: white;
 }
 
 #movies tr:nth-child(even){background-color: #f2f2f2;}
