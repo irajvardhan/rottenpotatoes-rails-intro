@@ -1,15 +1,20 @@
-table#movies {
+table #movies {
   border-collapse: collapse;
   border-bottom: 2px solid black;
   background-color: white;
   margin: 8px;
+  width: 100%;
 }
 
-table#movies th, table#movies td {
+table #movies th, table #movies td {
+  border: 1px solid #ddd;
   padding: 5px;
   text-align: center;
 }
 
-table#movies th.hilite {
+#movies tr:nth-child(even){background-color: #f2f2f2;}
+#movies tr:hover {background-color: #ddd;}
+
+table #movies th.hilite {
   background-color: yellow;
 }
