@@ -3,11 +3,11 @@ table #movies {
   background-color: white;
   margin: 8px;
   width: 100%;
+  padding: 20px;
 }
 
 table #movies th, table #movies td {
   border: 1px solid #ddd;
-  padding: 20px;
   text-align: center;
 }
 
