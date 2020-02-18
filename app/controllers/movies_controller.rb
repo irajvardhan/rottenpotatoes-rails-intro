@@ -11,14 +11,28 @@ class MoviesController < ApplicationController
   end
 
   def index
-    # Added for Part 1
-    @all_ratings = params[:ratings] ? params[:ratings].keys : Movie.get_ratings
-    @movies = Movie.where(rating: @all_ratings).order(params[:sort_by])
+    if params[:ratings].present?
+      session[:ratings] = params[:ratings]
+    end
 
-    if params[:sort_by] == 'title'
+    if params[:sort_by].present?
+      session[:sort_by] = params[:sort_by]
+    end 
+
+    # Added for Part 1
+    @all_ratings = session[:ratings] ? session[:ratings].keys : Movie.get_ratings
+    @movies = Movie.where(rating: @all_ratings).order(session[:sort_by])
+
+    if session[:sort_by] == 'title'
       @movie_title = 'hilite'
-    elsif params[:sort_by] == 'release_date'
+    elsif session[:sort_by] == 'release_date'
       @movie_release_date = 'hilite'
+    end
+
+    if session[:ratings] != params[:ratings] || session[:sort_by] != params[:sort_by]
+      # keep the current input from one more session
+      flash.keep
+      redirect_to movies_path(ratings: session[:ratings], sort_by: session[:sort_by]) #redirecting to new URI containing appropriate parameters
     end
 
   end
